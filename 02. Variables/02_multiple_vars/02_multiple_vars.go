@@ -14,4 +14,5 @@ func main() {
 
 	fmt.Println("Medium Espresso price is $2.50")
 	fmt.Println(size, coffeeName, "price is $", price)
+	fmt.Printf("%s %s price is $%.2f\n", size, coffeeName, price)
 }
