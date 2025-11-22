@@ -1,9 +1,26 @@
 package main
 
+// Struct tags — это аннотации в виде строк, привязанные к полям структуры.
+// Они задаются после объявления типа поля в обратных кавычках и обычно используются
+// для передачи метаданных библиотекам (например, кодировщикам JSON, ORM, валидаторам).
+
 import (
 	"fmt"
 	"reflect"
 )
+
+// Cтандартная библиотека reflect извлекает теги через reflect.Type.Field(i).Tag и методы Tag.Get("key").
+
+// type User struct {
+//     ID    int    `json:"id"`
+//     Name  string `json:"name,omitempty"`
+//     Email string `db:"email" validate:"required,email"`
+// }
+
+// t := reflect.TypeOf(User{})
+// field, _ := t.FieldByName("Email")
+// fmt.Println(field.Tag.Get("db")) // "email"
+// fmt.Println(field.Tag.Get("validate")) // "required,email"
 
 type User struct {
 	Name  string `validate:"min=2,max=32"`
